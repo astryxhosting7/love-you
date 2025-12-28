@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Forever ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a0b2e 0%, #2d1b69 30%, #3c2a7d 70%, #4a3a8c 100%);
+            min-height: 100vh;
+            color: #f0e6ff;
+            overflow-x: hidden;
+            padding-bottom: 50px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #e0b0ff, #d291ff, #c473ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(192, 132, 252, 0.2);
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            color: #d9b3ff;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .diamond-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .diamond {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            opacity: 0;
+            animation: twinkle 8s infinite ease-in-out;
+        }
+        
+        .message-section {
+            background: rgba(30, 15, 60, 0.85);
+            border-radius: 30px;
+            padding: 50px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideUp 1.5s ease-out;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(192, 132, 252, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #d291ff, transparent);
+        }
+        
+        .message {
+            font-size: 1.8rem;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #f0e6ff;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .message span {
+            color: #e0b0ff;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(224, 176, 255, 0.3);
+        }
+        
+        .ring-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 60px 0;
+            position: relative;
+        }
+        
+        .ring-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .ring {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 15px solid transparent;
+            background: linear-gradient(45deg, #d291ff, #c473ff, #b055ff) border-box;
+            position: relative;
+            animation: ringGlow 4s infinite alternate;
+            box-shadow: 0 0 40px rgba(192, 132, 252, 0.5),
+                        inset 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        .ring-diamond {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #fff, #e6e6ff);
+            transform: rotate(45deg);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            margin-top: -35px;
+            margin-left: -35px;
+            animation: diamondSparkle 3s infinite alternate;
+        }
+        
+        .proposal-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 40px 0;
+        }
+        
+        .proposal-button {
+            background: linear-gradient(to right, #8a2be2, #9b30ff, #a020f0);
+            color: white;
+            border: none;
+            padding: 25px 60px;
+            font-size: 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+            transition: all 0.4s ease;
+            letter-spacing: 1px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .proposal-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.6);
+            letter-spacing: 2px;
+        }
+        
+        .proposal-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .proposal-button:hover::before {
+            left: 100%;
+        }
+        
+        .proposal-message {
+            display: none;
+            background: rgba(40, 20, 80, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 2.2rem;
+            color: #f0e6ff;
+            animation: fadeIn 1.5s ease;
+            border: 2px solid #d291ff;
+            box-shadow: 0 0 40px rgba(210, 145, 255, 0.3);
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .answer-buttons {
+            display: none;
+            margin-top: 40px;
+            gap: 30px;
+            animation: fadeIn 1s ease;
+        }
+        
+        .answer-btn {
+            padding: 20px 50px;
+            font-size: 1.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+        
+        .yes-btn {
+            background: linear-gradient(to right, #32cd32, #3cb371);
+            color: white;
+            box-shadow: 0 10px 25px rgba(50, 205, 50, 0.4);
+        }
+        
+        .yes-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(50, 205, 50, 0.6);
+            background: linear-gradient(to right, #2eb82e, #36a36a);
+        }
+        
+        .no-btn {
+            background: linear-gradient(to right, #ff4444, #ff6666);
+            color: white;
+            box-shadow: 0 10px 25px rgba(255, 68, 68, 0.4);
+            position: relative;
+        }
+        
+        .no-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(255, 68, 68, 0.6);
+            background: linear-gradient(to right, #e63c3c, #e65c5c);
+        }
+        
+        .memories-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .memory-card {
+            background: rgba(40, 20, 80, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 250px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(192, 132, 252, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .memory-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(192, 132, 252, 0.2);
+            border-color: rgba(192, 132, 252, 0.3);
+        }
+        
+        .memory-card i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #e0b0ff, #c473ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .memory-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #d9b3ff;
+        }
+        
+        .memory-card p {
+            font-size: 1.2rem;
+            color: #c9b3ff;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px;
+            font-size: 1.5rem;
+            color: #b3a3ff;
+            border-top: 2px solid rgba(192, 132, 252, 0.2);
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '💍';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            background: linear-gradient(45deg, #d291ff, #c473ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        /* Animations */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: rotate(45deg) scale(0.5); }
+            50% { opacity: 0.8; transform: rotate(45deg) scale(1); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes ringGlow {
+            0% { box-shadow: 0 0 30px rgba(192, 132, 252, 0.5),
+                            inset 0 0 20px rgba(255, 255, 255, 0.2); }
+            100% { box-shadow: 0 0 50px rgba(192, 132, 252, 0.8),
+                            inset 0 0 25px rgba(255, 255, 255, 0.3); }
+        }
+        
+        @keyframes diamondSparkle {
+            0% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            100% { box-shadow: 0 0 40px rgba(255, 255, 255, 1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            .message { font-size: 1.5rem; }
+            .ring-container { width: 250px; height: 250px; }
+            .ring { width: 160px; height: 160px; }
+            .proposal-button { padding: 20px 40px; font-size: 1.6rem; }
+            .proposal-message { font-size: 1.8rem; padding: 30px; }
+            .answer-buttons { flex-direction: column; gap: 20px; }
+            .memories-section { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            .message-section { padding: 30px 20px; }
+            .proposal-button { padding: 18px 30px; font-size: 1.4rem; }
+            .answer-btn { padding: 15px 30px; font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="diamond-container" id="diamond-container"></div>
+    
+    <div class="container">
+        <header>
+            <h1>My Love, My Future</h1>
+            <p class="subtitle">A question I've been dreaming to ask you...</p>
+        </header>
+        
+        <section class="message-section">
+            <div class="message">
+                From the moment we met, my life has been brighter, fuller, and more meaningful than I ever imagined possible. <span>You've shown me what true love is</span> - patient, kind, and unwavering. Every laugh, every conversation, every quiet moment together has been a treasure.
+            </div>
+            <div class="message">
+                You're not just my girlfriend; you're my best friend, my confidante, and my greatest support. <span>With you, I've found a home</span> - not a place, but a person. Someone who understands me completely and loves me anyway.
+            </div>
+            <div class="message">
+                And now, with all my heart and soul, I want to ask you the most important question of my life...
+            </div>
+        </section>
+        
+        <section class="ring-section">
+            <h2 style="font-size: 2.5rem; color: #e0b0ff; margin-bottom: 20px;">A Symbol of My Eternal Love</h2>
+            <div class="ring-container">
+                <div class="ring"></div>
+                <div class="ring-diamond"></div>
+            </div>
+            <p style="font-size: 1.5rem; text-align: center; max-width: 600px; color: #d9b3ff; margin-top: 20px;">
+                Just like this diamond, my love for you is precious, strong, and meant to last forever.
+            </p>
+        </section>
+        
+        <section class="proposal-section">
+            <button class="proposal-button pulse" id="proposalButton">
+                <i class="fas fa-gem"></i> Click When You're Ready <i class="fas fa-gem"></i>
+            </button>
+            
+            <div class="proposal-message" id="proposalMessage">
+                <div style="margin-bottom: 30px;">
+                    My dearest love,<br>
+                    You have made every day of my life more beautiful since you came into it.
+                </div>
+                <div style="font-size: 2.8rem; color: #e0b0ff; margin: 30px 0;">
+                    Will you make me the happiest person alive<br>
+                    and marry me?
+                </div>
+                <div style="font-size: 1.8rem; color: #d9b3ff;">
+                    I promise to love, cherish, and stand by you<br>
+                    for all the days of my life.
+                </div>
+            </div>
+            
+            <div class="answer-buttons" id="answerButtons">
+                <button class="answer-btn yes-btn" id="yesBtn">
+                    <i class="fas fa-heart"></i> YES! A Thousand Times YES! <i class="fas fa-heart"></i>
+                </button>
+                <button class="answer-btn no-btn" id="noBtn">
+                    <i class="fas fa-times-circle"></i> No
+                </button>
+            </div>
+        </section>
+        
+        <section class="memories-section">
+            <div class="memory-card">
+                <i class="fas fa-heart"></i>
+                <h3>Our First Date</h3>
+                <p>I knew then you were someone special</p>
+            </div>
+            <div class="memory-card">
+                <i class="fas fa-star"></i>
+                <h3>Endless Laughter</h3>
+                <p>You make every moment joyful</p>
+            </div>
+            <div class="memory-card">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h3>Your Support</h3>
+                <p>You've always believed in me</p>
+            </div>
+        </section>
+        
+        <footer class="footer">
+            <p>With all my love, forever and always</p>
+            <p style="margin-top: 15px; font-size: 1.8rem; color: #e0b0ff;" id="signature">Your Future Husband</p>
+            <p style="margin-top: 20px; font-size: 1.2rem; color: #a090ff;">
+                No matter what your answer is, I will always love you.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Create twinkling diamonds in background
+        const diamondContainer = document.getElementById('diamond-container');
+        
+        for (let i = 0; i < 30; i++) {
+            createDiamond();
+        }
+        
+        function createDiamond() {
+            const diamond = document.createElement('div');
+            diamond.classList.add('diamond');
+            
+            // Random position
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            
+            // Random animation delay
+            const delay = Math.random() * 8;
+            
+            diamond.style.left = `${posX}vw`;
+            diamond.style.top = `${posY}vh`;
+            diamond.style.animationDelay = `${delay}s`;
+            
+            diamondContainer.appendChild(diamond);
+        }
+        
+        // Proposal interaction
+        const proposalButton = document.getElementById('proposalButton');
+        const proposalMessage = document.getElementById('proposalMessage');
+        const answerButtons = document.getElementById('answerButtons');
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        
+        let proposalClicked = false;
+        
+        proposalButton.addEventListener('click', function() {
+            if (!proposalClicked) {
+                proposalClicked = true;
+                
+                // Hide button and show message
+                proposalButton.style.display = 'none';
+                proposalMessage.style.display = 'block';
+                
+                // Show answer buttons after a moment
+                setTimeout(() => {
+                    answerButtons.style.display = 'flex';
+                    
+                    // Add sparkle effect
+                    createSparkles();
+                }, 2000);
+                
+                // Create diamond rain
+                createDiamondRain();
+            }
+        });
+        
+        // Yes button clicked
+        yesBtn.addEventListener('click', function() {
+            // Create celebration effect
+            createCelebration();
+            
+            // Update the page for "YES" answer
+            document.body.style.background = 'linear-gradient(135deg, #0b2e1a 0%, #1b693d 30%, #2a7d4c 70%, #3a8c5a 100%)';
+            
+            proposalMessage.innerHTML = `
+                <div style="font-size: 3.5rem; color: #90ffb3; margin: 20px 0;">
+                    <i class="fas fa-heart-circle-check"></i> SHE SAID YES! <i class="fas fa-heart-circle-check"></i>
+                </div>
+                <div style="font-size: 2.2rem; margin: 30px 0; color: #d9b3ff;">
+                    You've made me the happiest person in the world!
+                </div>
+                <div style="font-size: 1.8rem; color: #c9ffd9;">
+                    I can't wait to spend forever with you, my love.
+                </div>
+            `;
+            
+            answerButtons.style.display = 'none';
+            
+            // Update signature
+            document.getElementById('signature').innerHTML = `Your Fiancé 💍`;
+            
+            // Update title
+            document.title = "She Said YES! 💍";
+            
+            // Play celebration sound (if allowed by browser)
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                playCelebrationSound(audioContext);
+            } catch (e) {
+                console.log("Audio not supported");
+            }
+        });
+        
+        // No button interaction (with some humor)
+        let noClicks = 0;
+        noBtn.addEventListener('click', function() {
+            noClicks++;
+            
+            if (noClicks === 1) {
+                noBtn.innerHTML = `<i class="fas fa-smile-wink"></i> Are you sure?`;
+                noBtn.style.transform = 'scale(1.1)';
+                
+                // Move button a little
+                const x = Math.random() * 100 - 50;
+                const y = Math.random() * 100 - 50;
+                noBtn.style.transform = `translate(${x}px, ${y}px)`;
+            } 
+            else if (noClicks === 2) {
+                noBtn.innerHTML = `<i class="fas fa-grin-tongue-wink"></i> Maybe reconsider?`;
+                
+                // Move button more
+                const x = Math.random() * 150 - 75;
+                const y = Math.random() * 150 - 75;
+                noBtn.style.transform = `translate(${x}px, ${y}px)`;
+            }
+            else if (noClicks === 3) {
+                noBtn.innerHTML = `<i class="fas fa-kiss-wink-heart"></i> Just kidding, YES!`;
+                noBtn.className = "answer-btn yes-btn";
+                noBtn.id = "noBtn";
+                noBtn.style.transform = 'translate(0, 0)';
+                
+                // Trigger yes button effect
+                setTimeout(() => {
+                    noBtn.click();
+                }, 100);
+            }
+        });
+        
+        function createDiamondRain() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const diamond = document.createElement('div');
+                    diamond.classList.add('diamond');
+                    diamond.style.position = 'fixed';
+                    diamond.style.width = '15px';
+                    diamond.style.height = '15px';
+                    diamond.style.zIndex = '1000';
+                    diamond.style.animation = 'none';
+                    diamond.style.background = 'linear-gradient(45deg, #fff, #e6e6ff)';
+                    diamond.style.opacity = '0.9';
+                    
+                    // Random position at top
+                    const posX = Math.random() * 100;
+                    
+                    diamond.style.left = `${posX}vw`;
+                    diamond.style.top = '-20px';
+                    
+                    document.body.appendChild(diamond);
+                    
+                    // Animate falling
+                    let posY = -20;
+                    const fallSpeed = 2 + Math.random() * 3;
+                    
+                    const fall = () => {
+                        posY += fallSpeed;
+                        diamond.style.top = `${posY}px`;
+                        
+                        if (posY < window.innerHeight) {
+                            requestAnimationFrame(fall);
+                        } else {
+                            diamond.remove();
+                        }
+                    };
+                    
+                    fall();
+                }, i * 100);
+            }
+        }
+        
+        function createSparkles() {
+            const sparkleContainer = document.createElement('div');
+            sparkleContainer.style.position = 'fixed';
+            sparkleContainer.style.top = '0';
+            sparkleContainer.style.left = '0';
+            sparkleContainer.style.width = '100%';
+            sparkleContainer.style.height = '100%';
+            sparkleContainer.style.pointerEvents = 'none';
+            sparkleContainer.style.zIndex = '1001';
+            document.body.appendChild(sparkleContainer);
+            
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.style.position = 'absolute';
+                    sparkle.style.width = '8px';
+                    sparkle.style.height = '8px';
+                    sparkle.style.background = '#fff';
+                    sparkle.style.borderRadius = '50%';
+                    sparkle.style.boxShadow = '0 0 10px #fff, 0 0 20px #fff';
+                    
+                    // Random position
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    
+                    sparkle.style.left = `${posX}vw`;
+                    sparkle.style.top = `${posY}vh`;
+                    
+                    sparkleContainer.appendChild(sparkle);
+                    
+                    // Fade out
+                    setTimeout(() => {
+                        sparkle.style.transition = 'opacity 1s';
+                        sparkle.style.opacity = '0';
+                        setTimeout(() => {
+                            sparkle.remove();
+                        }, 1000);
+                    }, 500);
+                }, i * 50);
+            }
+            
+            // Remove container after animation
+            setTimeout(() => {
+                sparkleContainer.remove();
+            }, 6000);
+        }
+        
+        function createCelebration() {
+            // Create flying hearts
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '💍';
+                    heart.style.position = 'fixed';
+                    heart.style.fontSize = '2.5rem';
+                    heart.style.zIndex = '1002';
+                    heart.style.opacity = '0.9';
+                    
+                    // Start from the ring
+                    const ringRect = document.querySelector('.ring-container').getBoundingClientRect();
+                    const startX = ringRect.left + ringRect.width / 2;
+                    const startY = ringRect.top + ringRect.height / 2;
+                    
+                    heart.style.left = `${startX}px`;
+                    heart.style.top = `${startY}px`;
+                    
+                    document.body.appendChild(heart);
+                    
+                    // Random direction and distance
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = 100 + Math.random() * 200;
+                    const duration = 1500 + Math.random() * 1000;
+                    
+                    const endX = startX + Math.cos(angle) * distance;
+                    const endY = startY + Math.sin(angle) * distance;
+                    
+                    // Animate
+                    heart.animate([
+                        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                        { transform: `translate(${endX - startX}px, ${endY - startY}px) scale(1.5)`, opacity: 0 }
+                    ], {
+                        duration: duration,
+                        easing: 'ease-out'
+                    });
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        heart.remove();
+                    }, duration);
+                }, i * 100);
+            }
+        }
+        
+        function playCelebrationSound(audioContext) {
+            // Create a simple celebration sound
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+            oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+            oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+            oscillator.frequency.setValueAtTime(1046.50, audioContext.currentTime + 0.3); // C6
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 1);
+        }
+        
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            // Add a romantic quote
+            const quotes = [
+                "Love is not about how many days, months, or years you have been together. Love is about how much you love each other every single day.",
+                "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine.",
+                "I saw that you were perfect, and so I loved you. Then I saw that you were not perfect and I loved you even more.",
+                "You are the source of my joy, the center of my world, and the whole of my heart."
+            ];
+            
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            const quoteElement = document.createElement('p');
+            quoteElement.style.textAlign = 'center';
+            quoteElement.style.fontStyle = 'italic';
+            quoteElement.style.color = '#c9b3ff';
+            quoteElement.style.marginTop = '20px';
+            quoteElement.style.fontSize = '1.3rem';
+            quoteElement.textContent = `"${randomQuote}"`;
+            
+            document.querySelector('.message-section').appendChild(quoteElement);
+        });
+    </script>
+</body>
+</html>
